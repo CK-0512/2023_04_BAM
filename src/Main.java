@@ -4,13 +4,18 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("====프로그램 시작====");
 		
-		Scanner scn = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
-//		String cmd = scn.nextLine();
-//		int cmd = scn.nextInt();
-		String cmd = scn.next();
+		while(true) {
+			System.out.printf("명령어) ");
+			String cmd = sc.nextLine();
+			
+			if (cmd.equals("exit")) {
+				break;
+			}
+		}
 		
-		System.out.println(cmd);
+		sc.close();
 
 		System.out.println("====프로그램 끝====");
 	}
