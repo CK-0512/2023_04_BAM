@@ -65,14 +65,7 @@ System.out.println("====프로그램 시작====");
 				String[] cmdBits = cmd.split(" ");
 				int id = Integer.parseInt(cmdBits[2]);
 				
-				Article foundArticle = null;
-				
-				for (Article article : articles) {
-					if (article.id == id) {
-						foundArticle = article;
-						break;
-					} 
-				}
+				Article foundArticle = getArticleById(id);
 				
 				if (foundArticle == null) {
 					System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
@@ -89,14 +82,7 @@ System.out.println("====프로그램 시작====");
 				String[] cmdBits = cmd.split(" ");
 				int id = Integer.parseInt(cmdBits[2]);
 				
-				Article foundArticle = null;
-				
-				for (Article article : articles) {
-					if (article.id == id) {
-						foundArticle = article;
-						break;
-					} 
-				}
+				Article foundArticle = getArticleById(id);
 				
 				if (foundArticle == null) {
 					System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
@@ -119,14 +105,7 @@ System.out.println("====프로그램 시작====");
 				String[] cmdBits = cmd.split(" ");
 				int id = Integer.parseInt(cmdBits[2]);
 				
-				Article foundArticle = null;
-				
-				for (Article article : articles) {
-					if (article.id == id) {
-						foundArticle = article;
-						break;
-					} 
-				}
+				Article foundArticle = getArticleById(id);
 				
 				if (foundArticle == null) {
 					System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
@@ -147,6 +126,15 @@ System.out.println("====프로그램 시작====");
 		System.out.println("====프로그램 끝====");
 	}
 	
+	private Article getArticleById(int id) {
+		for (Article article : articles) {
+			if (article.id == id) {
+				return article;
+			} 
+		}
+		return null;
+	}
+	
 	private void makeTestDate() {
 		System.out.println("테스트용 게시물 데이터 5개 생성");
 		
@@ -162,5 +150,4 @@ System.out.println("====프로그램 시작====");
 			articles.add(article);
 		}
 	}
-	
 }
