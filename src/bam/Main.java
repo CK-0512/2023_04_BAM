@@ -6,13 +6,22 @@ import java.util.Scanner;
 import bam.util.Util;
 
 public class Main {
+	static List<Article> articles;
+	static int lastArticleId;
+	
+	static {
+		articles = new ArrayList<>();
+		lastArticleId = 0;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("====프로그램 시작====");
+		
+		makeTestDate();
+		
 		Scanner sc = new Scanner(System.in);
 		
-		int lastArticleId = 0;
 		
-		List<Article> articles = new ArrayList<>();
 		
 		while(true) {
 			System.out.printf("명령어) ");
@@ -134,6 +143,22 @@ public class Main {
 		sc.close();
 
 		System.out.println("====프로그램 끝====");
+	}
+
+	private static void makeTestDate() {
+		System.out.println("테스트용 게시물 데이터 5개 생성");
+		
+		for (int i = 1; i <= 5; i++) {
+			
+			int id = lastArticleId + 1;
+			lastArticleId = id;
+			
+			String title = "제목" + i;
+			String body = "내용" + i;
+			
+			Article article = new Article(id, Util.getDateStr(), title, body);
+			articles.add(article);
+		}
 	}
 }
 
