@@ -8,10 +8,10 @@ import bam.dto.Article;
 import bam.util.Util;
 
 public class App {
-	List<Article> articles;
-	int lastArticleId;
+	private List<Article> articles;
+	private int lastArticleId;
 	
-	App() {
+	public App() {
 		articles = new ArrayList<>();
 		lastArticleId = 0;
 	}
