@@ -6,7 +6,7 @@ import java.util.Scanner;
 import bam.dto.Member;
 import bam.util.Util;
 
-public class MemberController {
+public class MemberController extends Controller {
 	
 	private List<Member> members;
 	private Scanner sc;
@@ -18,7 +18,18 @@ public class MemberController {
 		this.lastMemberId = 0;
 	}
 	
-	public void doJoin() {
+	public void doAction(String cmd, String methodName) {
+		switch(methodName) {
+		case "join" :
+			doJoin();
+			break;
+		default :
+			System.out.println("존재하지 않는 명령어입니다.");
+			break;
+		}
+	}
+	
+	private void doJoin() {
 		System.out.println("== 회원 가입 ==");
 		int id = lastMemberId + 1;
 		lastMemberId = id;
@@ -43,7 +54,7 @@ public class MemberController {
 		while(true) {
 			System.out.printf("로그인 비밀번호 : ");
 			loginPw = sc.nextLine();
-			System.out.printf("로그인 비밀번호 ghkrdls : ");
+			System.out.printf("로그인 비밀번호 확인 : ");
 			String loginPwCk = sc.nextLine();
 			
 			if (loginPw.equals(loginPwCk) == false) {
@@ -71,4 +82,6 @@ public class MemberController {
 		}
 		return true;
 	}
+
+	
 }
