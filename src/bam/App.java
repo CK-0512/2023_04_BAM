@@ -28,6 +28,7 @@ public class App {
 		ArticleController articleController = new ArticleController(articles, sc);
 		
 		articleController.makeTestDate();
+		memberController.makeTestDate();
 		
 		while(true) {
 			System.out.printf("명령어) ");
@@ -39,7 +40,7 @@ public class App {
 			
 			String[] cmdBits = cmd.split(" ");
 			
-			if(cmdBits.length == 1) {
+			if (cmdBits.length == 1) {
 				System.out.println("명령어를 확인해주세요");
 				continue;
 			}
@@ -49,9 +50,9 @@ public class App {
 			
 			Controller controller = null;
 			
-			if(controllerName.equals("article")) {
+			if (controllerName.equals("article")) {
 				controller = articleController;
-			} else if(controllerName.equals("member")) {
+			} else if (controllerName.equals("member")) {
 				controller = memberController;
 			} else {
 				System.out.println("존재하지 않는 명령어 입니다.");
@@ -59,11 +60,10 @@ public class App {
 			}
 			
 			controller.doAction(cmd, methodName);
-		
-		sc.close();
 
 		System.out.println("====프로그램 끝====");
+		}
+		
+		sc.close();
 	}
-	
-	
 }

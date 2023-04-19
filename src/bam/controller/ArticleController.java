@@ -22,7 +22,7 @@ public class ArticleController extends Controller {
 	
 	public void doAction(String cmd, String methodName) {
 		this.cmd = cmd;
-		switch(methodName) {
+		switch (methodName) {
 		case "write" :
 			doWrite();
 			break;
