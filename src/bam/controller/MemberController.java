@@ -29,6 +29,9 @@ public class MemberController extends Controller {
 		case "login" :
 			doLogin();
 			break;
+		case "logout" :
+			doLogout();
+			break;
 		default :
 			System.out.println("존재하지 않는 명령어입니다.");
 			break;
@@ -109,6 +112,17 @@ public class MemberController extends Controller {
 			System.out.printf("%s님 환영합니다.\n", member.name);
 			break;
 		}
+	}
+	
+	private void doLogout() {
+		
+		if (loginedMember == null) {
+			System.out.println("로그인 상태가 아닙니다.");
+			return;
+		}
+		
+		loginedMember = null;
+		System.out.println("로그아웃 되었습니다.");
 	}
 	
 	public void makeTestDate() {
