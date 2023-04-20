@@ -3,7 +3,6 @@ package bam.controller;
 import java.util.List;
 import java.util.Scanner;
 
-import bam.dto.Article;
 import bam.dto.Member;
 import bam.util.Util;
 
@@ -12,7 +11,6 @@ public class MemberController extends Controller {
 	private List<Member> members;
 	private Scanner sc;
 	private int lastMemberId;
-	private Member loginedMember;
 	
 	public MemberController(List<Member> members, Scanner sc) {
 		this.members = members;
@@ -125,7 +123,7 @@ public class MemberController extends Controller {
 		System.out.println("로그아웃 되었습니다.");
 	}
 	
-	public void makeTestDate() {
+	public void makeTestData() {
 		System.out.println("테스트용 회원 데이터 5개 생성");
 		
 		for (int i = 1; i <= 3; i++) {
