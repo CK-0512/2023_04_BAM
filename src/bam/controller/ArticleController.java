@@ -45,11 +45,6 @@ public class ArticleController extends Controller {
 	}
 	
 	private void doWrite() {
-		if (loginedMember == null) {
-			System.out.println("로그인 상태가 아닙니다.");
-			return;
-		}
-		
 		System.out.println("== 게시물 작성 ==");
 		int id = lastArticleId + 1;
 		lastArticleId = id;
@@ -128,11 +123,6 @@ public class ArticleController extends Controller {
 	}
 	
 	private void doModify() {
-		if (loginedMember == null) {
-			System.out.println("로그인 상태가 아닙니다.");
-			return;
-		}
-		
 		String[] cmdBits = cmd.split(" ");
 		int id = Integer.parseInt(cmdBits[2]);
 		
@@ -166,11 +156,6 @@ public class ArticleController extends Controller {
 	}
 	
 	private void doDelete() {
-		if (loginedMember == null) {
-			System.out.println("로그인 상태가 아닙니다.");
-			return;
-		}
-		
 		String[] cmdBits = cmd.split(" ");
 		int id = Integer.parseInt(cmdBits[2]);
 		

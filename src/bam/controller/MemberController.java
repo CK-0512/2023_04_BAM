@@ -16,7 +16,6 @@ public class MemberController extends Controller {
 		this.members = members;
 		this.sc = sc;
 		this.lastMemberId = 0;
-		this.loginedMember = null;
 	}
 	
 	public void doAction(String cmd, String methodName) {

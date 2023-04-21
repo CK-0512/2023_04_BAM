@@ -59,6 +59,26 @@ public class App {
 				continue;
 			}
 			
+			String actionName = controllerName + "/" + methodName;
+			
+			switch (actionName) {
+			case "article/write" :
+			case "article/modify" :
+			case "article/delete" :
+			case "member/logout" :
+				if (Controller.loginedMember == null) {
+					System.out.println("로그인 상태가 아닙니다.");
+					continue;
+				}
+				break;
+			case "member/join" :
+			case "member/login" :
+				if (Controller.loginedMember != null) {
+					System.out.println("로그아웃 후 이용해주세요.");
+					continue;
+				}
+			}
+			
 			controller.doAction(cmd, methodName);
 
 		System.out.println("====프로그램 끝====");
