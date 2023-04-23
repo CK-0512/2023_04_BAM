@@ -12,7 +12,6 @@ public class MemberService {
 	}
 
 	public int setMemberId() {
-		
 		return memberDao.setMemberId();
 	}
 	
@@ -29,6 +28,6 @@ public class MemberService {
 	}
 	
 	public void makeTestData() {
-		memberDao.makeTestDate();
+		memberDao.makeTestData();
 	}
 }

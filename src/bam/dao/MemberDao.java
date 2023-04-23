@@ -44,7 +44,7 @@ public class MemberDao {
 		return true;
 	}
 
-	public void makeTestDate() {
+	public void makeTestData() {
 		for (int i = 1; i <= 3; i++) {
 			
 			int id = setMemberId();
