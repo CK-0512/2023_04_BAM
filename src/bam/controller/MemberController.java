@@ -35,7 +35,7 @@ public class MemberController extends Controller {
 	
 	private void doJoin() {
 		System.out.println("== 회원 가입 ==");
-		int id = memberService.setMemberId();
+		int id = memberService.setLastId();
 		
 		String loginId = null;
 		
