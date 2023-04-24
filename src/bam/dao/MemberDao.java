@@ -3,6 +3,8 @@ package bam.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import bam.container.Container;
+import bam.dto.Article;
 import bam.dto.Member;
 import bam.util.Util;
 
@@ -35,6 +37,15 @@ public class MemberDao extends Dao {
 			return false;
 		}
 		return true;
+	}
+	
+	public String getWriterName(int memberId) {
+		for (Member member : members) {
+			if (member.id == memberId) {
+				return member.name;
+			}
+		}
+		return null;
 	}
 
 	public void makeTestData() {

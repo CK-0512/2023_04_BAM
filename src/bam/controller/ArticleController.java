@@ -6,6 +6,7 @@ import java.util.Scanner;
 import bam.container.Container;
 import bam.dto.Article;
 import bam.service.ArticleService;
+import bam.service.MemberService;
 import bam.util.Util;
 
 public class ArticleController extends Controller {
@@ -13,9 +14,11 @@ public class ArticleController extends Controller {
 	private String cmd;
 	private Scanner sc;
 	private ArticleService articleService;
+	private MemberService memberService;
 	
 	public ArticleController(Scanner sc) {
 		this.articleService = Container.articleService;
+		this.memberService = Container.memberService;
 		this.sc = sc;
 	}
 	
@@ -76,8 +79,9 @@ public class ArticleController extends Controller {
 		
 		for (int i = printArticle.size() - 1; i >= 0; i--) {
 			Article article = printArticle.get(i);
+			String writerName = memberService.getWriterName(article.memberId);
 			
-			System.out.printf("%d	|	%s	|	%s	|	%s\n", article.id, article.title, article.regDate, article.memberId);
+			System.out.printf("%d	|	%s	|	%s	|	%s\n", article.id, article.title, article.regDate, writerName);
 		}
 	}
 	
@@ -97,13 +101,15 @@ public class ArticleController extends Controller {
 			System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
 			return;
 		}
+		
+		String writerName = memberService.getWriterName(foundArticle.memberId);
 			
-			System.out.println("== 게시물 상세보기 ==");
-			System.out.printf("번호 : %d\n", foundArticle.id);
-			System.out.printf("작성일 : %s\n", foundArticle.regDate);
-			System.out.printf("작성자 : %s\n", foundArticle.memberId);
-			System.out.printf("제목 : %d\n", foundArticle.title);
-			System.out.printf("내용 : %d\n", foundArticle.body);
+		System.out.println("== 게시물 상세보기 ==");
+		System.out.printf("번호 : %d\n", foundArticle.id);
+		System.out.printf("작성일 : %s\n", foundArticle.regDate);
+		System.out.printf("작성자 : %s\n", writerName);
+		System.out.printf("제목 : %d\n", foundArticle.title);
+		System.out.printf("내용 : %d\n", foundArticle.body);
 	}
 	
 	private void doModify() {
